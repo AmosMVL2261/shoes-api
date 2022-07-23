@@ -34,7 +34,6 @@ shoesRouter.get('/:id', (req, res) => {
 shoesRouter.post('/', (req, res) => {
     const newShoe = req.body;
     shoes.push(newShoe);
-    console.log(shoes);
     const response = { message: 'shoe created!'};
     res.status(201).json(response);
 });
@@ -47,7 +46,6 @@ shoesRouter.patch('/:id', (req, res) => {
     if (indexFounded !== -1) {
         const shoeCopy = { ...shoes[indexFounded] };
         shoes[indexFounded] = { ...shoeCopy, ...body };
-        console.log(shoes);
         res.json({ message: 'modified with success!', body });
     } else {
         res.send('ese id no existe');
@@ -62,7 +60,6 @@ shoesRouter.put('/:id', (req, res) => {
     if (indexFounded !== -1) {
         const shoeCopy = { ...shoes[indexFounded] };
         shoes[indexFounded] = { ...shoeCopy, ...body };
-        console.log(shoes);
         res.json({ message: 'modified with success!', body });
     } else {
         res.send('ese id no existe');
@@ -77,7 +74,6 @@ shoesRouter.delete('/:id', (req, res) => {
         const shoesCopy = [ ...shoes ];
         shoesCopy.splice(indexFounded, 1);
         shoes = [ ...shoesCopy ];
-        console.log('shoes:', shoes);
         res.json({ message: 'eliminado!', id });
     } else {
         res.send('ese id no existe');
