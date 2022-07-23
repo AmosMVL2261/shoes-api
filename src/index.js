@@ -14,7 +14,7 @@ const routerApi = require('./routes/main.controller');
 app.use(express.json());
 
 //CORS
-var whitelist = ['http://127.0.0.1:5500','http://127.0.0.1:5501']
+var whitelist = ['http://127.0.0.1:5500','http://127.0.0.1:5501', "http://localhost:3000"]
 var corsOptions = {
   origin: function (origin, callback) {
     if (whitelist.includes(origin || !origin)) {
